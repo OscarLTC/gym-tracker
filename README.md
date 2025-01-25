@@ -1,50 +1,47 @@
-# Welcome to your Expo app 👋
+# Pesitas-Tracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Pesitas-Tracker es una aplicación móvil centrada en el seguimiento de progresos y rutinas de gimnasio. Su enfoque principal es ayudar a los usuarios a registrar, monitorear y optimizar su avance en el ámbito fitness de manera simple e intuitiva.
 
-## Get started
+## Índice
 
-1. Install dependencies
+- [Pesitas-Tracker](#pesitas-tracker)
+  - [Índice](#índice)
+  - [Descripción General](#descripción-general)
+  - [Características Principales](#características-principales)
+  - [Tecnologías Utilizadas](#tecnologías-utilizadas)
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## Descripción General
 
-   ```bash
-    npx expo start
-   ```
+**Pesitas-Tracker** tiene como objetivo prevenir la pérdida de información sobre el progreso físico y deportivo de los usuarios. Además de registrar entrenamientos y datos corporales, la aplicación planea ofrecer:
 
-In the output, you'll find options to open the app in a
+- **IA** para generar recomendaciones personalizadas (rutinas, planes de alimentación, etc.).
+- **Gamificación** para motivar y recompensar los logros.
+- **Comunidad** para compartir avances y recibir retroalimentación.
+- **Integraciones** futuras con wearables y Realidad Aumentada (AR).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Este repositorio contiene el código fuente de la aplicación y la documentación relacionada con su desarrollo.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## Características Principales
 
-When you're ready, run:
+- **Registro de Entrenamientos**: Llevar un control de ejercicios, repeticiones, series y peso utilizado.
+- **Seguimiento de PRs (Personal Records)**: Almacenar y actualizar tus máximos personales en diferentes ejercicios.
+- **Registro de Datos Corporales**: Guardar información como peso, altura, y otras medidas relevantes.
+- **Estadísticas y Gráficas**: Visualizar tu evolución con reportes claros y fáciles de entender.
+- **Recordatorios y Notificaciones**: Mantener el hábito de entrenar y no olvidar registrar tus progresos.
+- **Perfiles de Usuario**: Crear tu cuenta, personalizar tus objetivos y ver tu historial de avances.
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Tecnologías Utilizadas
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **[React Native](https://reactnative.dev/)**: Framework principal para desarrollar la app móvil (Android/iOS).
+- **[Firebase](https://firebase.google.com/)**:  
+  - **Firestore** para la base de datos en tiempo real.  
+  - **Firebase Auth** para la autenticación de usuarios.  
+  - **Cloud Messaging** para notificaciones push.
+- **[Python](https://www.python.org/)** (o Node.js) para futuros microservicios de IA.
+- **Otros**: Herramientas de diseño/UI (Figma, Sketch) y sistemas de control de versiones (Git).
