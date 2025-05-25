@@ -5,33 +5,33 @@ import { SymbolWeight } from "expo-symbols";
 import React from "react";
 import {
   OpaqueColorValue,
+  Platform,
   StyleProp,
   TextStyle,
   ViewStyle,
 } from "react-native";
 
-// Add your SFSymbol to MaterialIcons mappings here.
+import { DumbbellIcon } from "./icons/DumbbellIcon";
+import { ListChecksIcon } from "./icons/ListChecksIcon";
+import { ChartLineIcon } from "./icons/ChartLineIcon";
+import { CalendarIcon } from "./icons/Calendar";
+
 const MAPPING = {
-  // See MaterialIcons here: https://icons.expo.fyi
-  // See SF Symbols in the SF Symbols app on Mac.
   "house.fill": "home",
   "paperplane.fill": "send",
   "chevron.left.forwardslash.chevron.right": "code",
   "chevron.right": "chevron-right",
-} as Partial<
-  Record<
-    import("expo-symbols").SymbolViewProps["name"],
-    React.ComponentProps<typeof MaterialIcons>["name"]
-  >
->;
+} as const;
 
-export type IconSymbolName = keyof typeof MAPPING;
+const CUSTOM_ICONS = {
+  dumbbell: DumbbellIcon,
+  "list-checks": ListChecksIcon,
+  "chart-line": ChartLineIcon,
+  calendar: CalendarIcon,
+} as const;
 
-/**
- * An icon component that uses native SFSymbols on iOS, and MaterialIcons on Android and web. This ensures a consistent look across platforms, and optimal resource usage.
- *
- * Icon `name`s are based on SFSymbols and require manual mapping to MaterialIcons.
- */
+export type IconSymbolName = keyof typeof MAPPING | keyof typeof CUSTOM_ICONS;
+
 export function IconSymbol({
   name,
   size = 24,
@@ -44,12 +44,28 @@ export function IconSymbol({
   style?: StyleProp<ViewStyle>;
   weight?: SymbolWeight;
 }) {
-  return (
-    <MaterialIcons
-      color={color}
-      size={size}
-      name={MAPPING[name]}
-      style={style as TextStyle}
-    />
-  );
+  if (Platform.OS !== "ios") {
+    const miName = (MAPPING as any)[name];
+    if (miName) {
+      return (
+        <MaterialIcons
+          name={miName}
+          size={size}
+          color={typeof color === "string" ? color : undefined}
+          style={style as TextStyle}
+        />
+      );
+    }
+    const Custom = (CUSTOM_ICONS as any)[name];
+    if (Custom) {
+      return (
+        <Custom
+          size={size}
+          color={typeof color === "string" ? color : "#000"}
+        />
+      );
+    }
+  }
+
+  return null;
 }
