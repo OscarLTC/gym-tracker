@@ -60,7 +60,7 @@ export default function TabLayout() {
         options={{
           title: "Progress",
           tabBarIcon: ({ color }) => (
-            <Ionicons size={20} name="chart-line" color={color} />
+            <IconSymbol size={20} name="chart-line" color={color} />
           ),
         }}
       />
